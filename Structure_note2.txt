@@ -1,0 +1,32 @@
+1) Array of Structures:
+	> Array is collection of same data type. We can declare Array of structure where each element of array is of struct type. Array of struct can be declared as :
+	 struct student stu[10]; Here stu is an array of 10 elements, each of which is a struct of type struct student.
+	> To access individual members of these struct we will use dot operator
+	  stu[0].name stu[0].rollno stu[0].mark
+	  stu[1].name stu[1].rollno stu[1].mark
+    
+	  stu[9].name stu[9].rollno stu[9].mark
+	> All the structure of array are stored in consecutive memory locations.
+	> An array of structure can be initialized as:
+          struct student stuarr[3] = {
+					{"Anjali", 12, 98},
+					{"UnniMolae", 13, 98},
+					{"Kunju", 14, 98}
+				     };
+	  Inner pair of braces are optional if all the iniatizers are present in list.
+
+2) Array within structure:
+	> We can have array as a member of structure. 
+		struct student{
+			char name[10];
+			int rollno;
+			int submark[4];
+		      };
+	stu.submark[0] - Denotes the mark of student in first subject
+	stu.submark[1] - Denotes the mark of student in second subject
+	stu.name[0] - Denotes the first char of the name member
+	stu.name[4] - Denotes the fifth char of the name member
+
+	If stuarr is an array of size 10 of type struct student then 
+	stuarr[0].submark[0] - Denotes the mark of first student in first subject
+	stuarr[4].submark[4] - Denotes the mark of fifth student in second subject

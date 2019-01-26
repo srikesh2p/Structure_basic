@@ -1,0 +1,93 @@
+Array is a collection of same type of elements but in many real life application we need to group different types of logically related data.
+To store these related field of different data type we can use STRUCTURE which is capable of storing different data type(heterogenous data).
+
+1) Defining a Structure:
+
+Syntax:
+
+struct tagname{
+		datatype member1;
+		datatype member2;
+		datatype memberN;
+	      };
+
+	> struct is keyword which tell compiler that structure is defined.
+	> member1, member2, membern are the members of structure declared inside the curely braces.Member can be of any data type like int, char, float, array, pointer or anyother structre type.
+        > tagname is name of structure and used further in program to declare variables of this structure type.
+	> Semicolon should be there at the end of curely braces.
+	> Definition of structure does not allocate memory for the members;space is allocated only when actual variable of this structure type are declared.
+	> Although syntax of declaration of members inside the template is identical to the synatax we use in declaring variable(outside struct) these struct members are not variables, they donot have existence until they are attached with a structure variable.
+	> The member inside the structure should be different but these name can be similar to any other variable name declared outside the structure. The member name of two different structure may also be same.
+	> Structure template can be defined globally or locally i.e it can be placed before all functions in the program or it can be locally present in the function. If it is global structure can be used by all functions else if it is local then only that function. 
+
+2) Declaring a structure variable:
+ 	We can declare a structure in two ways:
+	a) With structure definition
+	struct student{
+			char name[10];
+			int rollno;
+			float mark;
+		      }stu1, stu2, stu3;
+	> stu1, stu2, stu3 are variables of type struct student.
+	> When we declare a variable while defining struct template then tagname is optional.
+	struct{
+		char name[10];
+		int rollno;
+		float mark;
+	      }stu1, stu2, stu3;
+	> If we remove tagname while defining structure then we cannot declare a variable of this type again in the program or we can not send the structure variable to the function.
+
+	b) Using structure tag
+	struct student{
+			char name[10];
+			int rollno;
+			float mark;
+		      };
+	struct student stu1, stu2;
+	struct student stu3;
+	> stu1, stu2, stu3 are variables of type struct student.
+	> Declaring a structure variable reserve the space in memory. The compiler will reserve space for each variable sufficient to hold all the member.
+
+3) Initialization of structure variables:
+	> The syntax of initializing structure variable is similar to arrays.
+	> All values are given in curely braces and the number, order and type of these values should be same as the structure template definition.
+	> Initializing values can only be constant expression.
+	struct student{
+			char name[10];
+			int rollno;
+			float mark;
+		      }stu1= {"sri", 25, 98.5};
+	struct student stu2 = {"anjali", 26, 99.9};
+	> We cannot initialize structure while defining the structure.
+	struct student{
+			char name[10];
+			int rollno;
+			float mark = 99; /* Invalid */
+		      }stu;
+        Its invalid because there is no variable called mark and there is no memory allocated for structure definition.
+	> If number of initializers are less than the number of members then remaining members are initialized with zero.
+	struct student stu2 = {"anjali"};
+        Here member mark and rollno will be initialised with zero.
+	struct student stu2 = {"anjali", 0, 0};
+	
+4) Accessing Members of a Structure:
+	> For accessing any member of a Structure variable, we use a dot operator which is also known as period or membership operator.
+           structvariable.member ie stu2.rollno
+	> We can use stu.name, stu.rollno, stu.mark like any other variable in the program. They can be read, displayed, processed, assigned values or can be sent to function as arguments.
+	> we cannot use student.name because student is not a structure variable, it is a structure tag.
+	> Dot operator is one of the highest precedence operator; its associativity is from left to right. Hence it will take precedence over all other operators.
+	In expression like ++stu.mark, first stu.mark will be accessed then its value is increased by 1.
+
+5) Assignment of structure:
+	> We can assign values of struct variable to another struct variable, if both variable value are of same type.
+	> Unary, relational, arithmetic, bitwise operators are not allowed with struct variables.
+
+
+
+	
+
+	
+
+
+	 
+
