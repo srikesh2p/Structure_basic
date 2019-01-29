@@ -30,3 +30,51 @@
 	If stuarr is an array of size 10 of type struct student then 
 	stuarr[0].submark[0] - Denotes the mark of first student in first subject
 	stuarr[4].submark[4] - Denotes the mark of fifth student in second subject
+
+3) Pointer to Structure:
+	> Pointer to structure hold starting address of a structure variable.
+	  struct student{
+			char name[10];
+			int rollno;
+			float mark;
+		      };
+	  struct student stu, *ptr;
+ 	  Here ptr is pointer variable that can point to a variable of type struct student.
+	  so ptr can point to stu by
+	  ptr = &stu;
+	 > There are two ways of  accessing the member of structure through the structure pointer.
+	   We know ptr is pointer to structure, so by dereferncing it we can get the content of structure variable. Hence *ptr will give the content of stu. So to access the member of struct variable stu we can write
+	  (*ptr).name
+	  (*ptr).rollno
+	  (*ptr).mark
+	  Here parentheses are necessary becauz dot operator has higher precedence than *opearator.
+	> The above syntax is confusing so c provided arrow operator. We can acess member as ->
+	  ptr -> name
+	  ptr -> rollno
+	  ptr -> mark
+	  The arrow operator as same precedence as dot operator and it is also associative fro left to write.
+        > We can also have pointer that point to individual member of structure variable. For example:
+	  int *p = &stu.rollno;
+	  float *ptr = &stu.marks;
+          Expression &stu.mark is equivalent to &(stu.mark) becauz precedence of dot operator is more than that of address operator.
+
+4) Pointers within structure:
+	> Pointer can be used as member of stucture.
+	  struct student {
+				char name[20];
+				int *ptrmem;
+			 };
+          struct student stu, *stuptr = &stu;
+          Here ptrmem is pointer to int and its member of structure student.
+ 
+	> To access value of ptrmem, we will write
+	  stu.ptrmem, (*stuptr).ptrmem, stuptr->ptrmem
+
+	> To access value pointed to by stu.ptrmem, we will write
+	  *stu.ptrmem or *stuptr->ptrmem
+	  Since the priority is dot and arrow operartor is more than that of derefernce operatore.
+	  *stu.ptrmem is equivalent to *(stu.ptrmem) or *stuptr->ptrmem is equivalent to *(stuptr->ptrmem)
+
+
+ 	  
+
