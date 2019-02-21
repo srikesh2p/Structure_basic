@@ -1,0 +1,44 @@
+Structure And Functions:
+Structure may be passed as arguments to function in different ways. We can pass individual members, whole strucutre variables or stucture pointers to the function. Similarly a function can return either a strucutre member or a whole structure variable or a pointer to stucture.
+
+1) Passing structure members as arguments:
+We can pass individual structure members as arguments to functions like any other ordinary variable
+	> Refer program 5 in code directory for more details.
+	> In the above program, members of variable stu1 and stu2 are passed to the function. We can pass the arguments using call by reference also so that changes made in called function can be reflected in the calling function. In this case we have to send the addresses of the members.
+	> It is also posible to return single member from function.
+
+2) Passing structure variable as arguments:
+	> Passing individual members to function becomes cumbersome when there are many members. So at thst time passing variable as argument is helpful.
+	> On passing structure variable as argument it is necessary to define structure template globally because it is used by both the function to declare variables.
+	> Refer program 6 in code directory for more details.
+	> The name of structure variable is not pointer unlike arrays, so when we send struct variable argument to function, a copy of whole structure is made inside  the called function and not visible in the calling function since we are working on a copy of the structure variable, and not on actual struct variable.
+
+3) Passing pointers to structures as arguments:
+	> If the size of a structure is very large it is not efficent to pass the whole structure to the function since the copy of it has to be made inside the called function. In this case it is better to send the address of the structure which will improve the execution speed.
+	> We can access members of strucutre variable inside the calling function using arrow operator. In this case any change made to the strucutre variable inside the called function, will be visible in the calling function since we are actually working on the original strucutre variable.
+	> Refer program 7 in code directory for more details.
+4) Returning a Structure Variable From Function:
+	> Structure variables can be returned from functions as any other variable. The returned value can be assigned to a strucutre of appropriate type.
+	> Refer program 8 in code directory for more details.
+
+5) Returning a Pointer to Structure From Function:
+	> Pointers to structures can also be returned from functions. 
+	> Refer program 9 in code directory where it returns a pointer to strucutre.
+
+6) Passing Array Of Structures As Argument:
+	> We can pass array of strucutre to function, where each element of array is of strucutre type.
+	> Refer program 10 in code directory for more details.
+	> All the changes made  in the array of structurs inside the called fuction will be visible in the calling funcion. 
+ 
+
+7) Self Referential Structure:
+	> Structure that contain pointers to strucutre of its own type is known as Self Referential Structure. For example,
+	  struct tag {
+			datatype member1;
+			datatype member2;
+			....
+			...
+			struct tag *ptr1;
+			struct tag *ptr2;
+	 	     };
+	> Here ptr1 & ptr2 are strucutre pointers that can point to strucutre variables of type struct tag, so struct tag is a self referential strucutre. These types of strucutres are helpful in implementing data structures like linked lists and trees.

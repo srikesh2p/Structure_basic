@@ -31,6 +31,57 @@
 	stuarr[0].submark[0] - Denotes the mark of first student in first subject
 	stuarr[4].submark[4] - Denotes the mark of fifth student in second subject
 
+3)Nested Structures(Structure within Structure)
+	> The member of structure can be of any data type including another structure type i.e we can include a structure within another structure. A structure variable can be member of another structure. This is called nesting of structure.
+	> Example of nested structure:
+		struct student{
+			char name[10];
+			int rollno;
+			struct date{
+					int day;	
+					int month;
+					int year;
+				   }birthdate;
+			float marks;
+		      }stu1,stu2;
+
+		We can access members of inner structure as:
+
+		stu1.birthdate.day = day of birthdate of stu1
+		stu1.birthdate.month = month of birthdate of stu1
+		stu1.birthdate.year = year of birthdate of stu1
+		stu2.birthdate.day = day of birthdate of stu2
+	> We could have define the inner stucture out side and declare its variable  inside the main structure. But if we define inner struct outside it should be always before the definition of main struct or outer struct,
+			struct date{
+					int day;	
+					int month;
+					int year;
+				   }birthdate;
+	
+			struct student{
+			char name[10];
+			int rollno;
+			struct date birthdate;
+			float marks;
+	      }stu1,stu2;
+
+	> The advantage of defining outside is that we can declare variable of date type anywhere also. REUSABILITY. Suppose we define structure teacher, then we can declare variable of date structure inside it as
+			struct teacher{	
+					char name[20];
+					int age;		
+					float salary;	
+					struct date bithdate, joindate;
+					}t1,t2;
+	> Nested structure may also be initialized at the time of declaration:
+			struct teacher t1 = {"Mukesh", 49, 80000, {8,12,1980}, {1,7,2000}}};
+        
+        > Nesting of a structure within itself is not valid.
+			struct person{
+					char name[20];
+					int age;
+					float height;
+					struct person father; /* Invalid */
+					}emp;
 3) Pointer to Structure:
 	> Pointer to structure hold starting address of a structure variable.
 	  struct student{

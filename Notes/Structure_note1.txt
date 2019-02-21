@@ -82,7 +82,23 @@ struct tagname{
 	> We can assign values of struct variable to another struct variable, if both variable value are of same type.
 	> Unary, relational, arithmetic, bitwise operators are not allowed with struct variables.
 
-
+6) Storage allocation and size of structure:
+	> We may need to find out the size of structure in some situations like reading and writing to files. 
+	> To find the size of structure	by size of operator, we can either use the structure variable or the tag name with struct keyword.
+		sizeof(stu1);
+		sizeof(stu2);
+		sizeof(stuct student)
+	 Here if stu1 and stu2 are variables of type struct student, then all the three expression will give same result.
+	 > Size of structure may be different on different machine. This is because of certain memory allignment restriction on some computers. For example some machine  store integers only at addresses which are multiple of 4. 
+	 > struct 
+	   {
+	   	char ch;
+		int num;
+	   }var;
+	   The memory required for one char and one int in above struct is 5 bytes but the size allocated for struct is 8 byte and there will be hole of 3 bytes. These 3 bytes are unused bytes  after the last member(padding) to satisfy the allignment requirement.
+	   Due to this sizeof whole structure may not be equal to sum of size of its member. So it is always better to find size of structure variable by using sizeof operator rather than the sum of sizes of its members.
+	   > There may be unused bytes in the structre, and due to this even if two structures have same values for its members, then unused bytes have different values, so comparing of structure is not allowed in C.
+	   > Memory for member is allocated in the order given in the declaration of the structre template,
 
 	
 
