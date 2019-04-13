@@ -8,7 +8,7 @@ We can pass individual structure members as arguments to functions like any othe
 	> It is also posible to return single member from function.
 
 2) Passing structure variable as arguments:
-	> Passing individual members to function becomes cumbersome when there are many members. So at thst time passing variable as argument is helpful.
+	> Passing individual members to function becomes cumbersome when there are many members. So at that time passing variable as argument  is helpful.
 	> On passing structure variable as argument it is necessary to define structure template globally because it is used by both the function to declare variables.
 	> Refer program 6 in code directory for more details.
 	> The name of structure variable is not pointer unlike arrays, so when we send struct variable argument to function, a copy of whole structure is made inside  the called function and not visible in the calling function since we are working on a copy of the structure variable, and not on actual struct variable.
