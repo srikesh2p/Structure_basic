@@ -1,5 +1,7 @@
 /*P2.23 Program to assign a structure variable to another structure variable*/
 
+//We can assign values of struct variable to another struct variable, if both variable value are of same type.
+
 #include<stdio.h>
 
 struct student {
